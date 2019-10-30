@@ -9,15 +9,14 @@ import { ConectorService } from 'src/app/conector.service';
 export class IndexComponent implements OnInit {
 
   //guardo los resultados
-  empleados: any
+  alumnos: any
 
   constructor(private api: ConectorService) {
-
   }
 
-  eliminar(empleados) {
-    console.log(empleados.id);
-    this.api.eliminar(empleados.id).subscribe(response => {
+  eliminar(alumnos) {
+    console.log(alumnos.id);
+    this.api.eliminar(alumnos.id).subscribe(response => {
       console.log(response);
     },error =>{
       console.log(error);
@@ -28,7 +27,7 @@ export class IndexComponent implements OnInit {
 
     this.api.listar().subscribe(response => {
       console.log(response);
-      this.empleados = response.data;
+      this.alumnos = response.data;
     }, error => {
       console.log(error);
     });
